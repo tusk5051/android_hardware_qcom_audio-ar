@@ -258,102 +258,102 @@ PRODUCT_COPY_FILES += \
     $(TOPDIR)vendor/qcom/opensource/audio-hal/primary-hal/configs/common/init.qti.audio.debug.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.qti.audio.debug.sh
 endif
 # Reduce AF standby time for playback threads (except offload)
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_VENDOR_PROPERTIES += \
    ro.audio.flinger_standbytime_ms=2000
 
 # timecheck timeout value for audio in ms
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_VENDOR_PROPERTIES += \
     vendor.audio_hal.timecheck_timeoutMS=8000
 
 # Low latency audio buffer size in frames
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_VENDOR_PROPERTIES += \
     vendor.audio_hal.period_size=192
 
 # period multiplier for low latency capture tracks
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_VENDOR_PROPERTIES += \
     vendor.audio.ull_record_period_multiplier=2
 #Enable audio track offload by default
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_VENDOR_PROPERTIES += \
 vendor.audio.offload.track.enable=true
 #Disable Multiple offload sesison
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_VENDOR_PROPERTIES += \
 vendor.audio.offload.multiple.enabled=false
 #flac sw decoder 24 bit decode capability
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_VENDOR_PROPERTIES += \
 vendor.audio.flac.sw.decoder.24bit=true
 
 #split a2dp DSP supported encoder list
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_VENDOR_PROPERTIES += \
 persist.vendor.bt.a2dp_offload_cap=sbc-aptx-aptxtws-aptxhd-aac-ldac
 
 # A2DP offload support
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_VENDOR_PROPERTIES += \
 ro.bluetooth.a2dp_offload.supported=true
 
 # Disable A2DP offload
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_VENDOR_PROPERTIES += \
 persist.bluetooth.a2dp_offload.disabled=false
 
 # A2DP offload DSP supported encoder list
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_VENDOR_PROPERTIES += \
 persist.bluetooth.a2dp_offload.cap=sbc-aac-aptx-aptxhd-ldac
 
 #enable software decoders for ALAC and APE
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_VENDOR_PROPERTIES += \
 vendor.audio.use.sw.alac.decoder=true
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_VENDOR_PROPERTIES += \
 vendor.audio.use.sw.ape.decoder=true
 
 #enable software decoder for MPEG-H
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_VENDOR_PROPERTIES += \
 vendor.audio.use.sw.mpegh.decoder=true
 
 #disable hw aac encoder by default in AR
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_VENDOR_PROPERTIES += \
 vendor.audio.hw.aac.encoder=false
 #ADM Buffering size in ms
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_VENDOR_PROPERTIES += \
 vendor.audio.adm.buffering.ms=2
 
 #enable headset calibration
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_VENDOR_PROPERTIES += \
 vendor.audio.volume.headset.gain.depcal=true
 
 #enable c2 based encoders/decoders as default NT decoders/encoders
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_VENDOR_PROPERTIES += \
 vendor.audio.c2.preferred=true
 
 #Enable dmaBuf heap usage by C2 components
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_VENDOR_PROPERTIES += \
 debug.c2.use_dmabufheaps=1
 
 #Enable C2 suspend
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_VENDOR_PROPERTIES += \
 vendor.qc2audio.suspend.enabled=true
 
 #Enable qc2 audio sw flac frame decode
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_VENDOR_PROPERTIES += \
 vendor.qc2audio.per_frame.flac.dec.enabled=true
 
 
 ifneq ($(GENERIC_ODM_IMAGE),true)
 $(warning "Enabling codec2.0 SW only for non-generic odm build variant")
 #Rank OMX SW codecs lower than OMX HW codecs
-PRODUCT_PROPERTY_OVERRIDES += debug.stagefright.omx_default_rank=0
+PRODUCT_VENDOR_PROPERTIES += debug.stagefright.omx_default_rank=0
 endif
 endif
 #enable keytone FR
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_VENDOR_PROPERTIES += \
 vendor.audio.hal.output.suspend.supported=true
 #enable AAC frame ctl for A2DP sinks
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_VENDOR_PROPERTIES += \
 persist.vendor.bt.aac_frm_ctl.enabled=true
 
 #enable VBR frame ctl
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_VENDOR_PROPERTIES += \
 persist.vendor.bt.aac_vbr_frm_ctl.enabled=true
 #add dynamic feature flags here
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_VENDOR_PROPERTIES += \
 vendor.audio.feature.a2dp_offload.enable=true \
 vendor.audio.feature.battery_listener.enable=true \
 vendor.audio.feature.hfp.enable=true \
